@@ -1,14 +1,18 @@
 require('dotenv').config()
 
 import Twit from 'twit-promise'
-import http from 'http'
+import express from 'express'
 
-// Heroku requires a web server running, so, uh, here you go
-http.createServer((req, res) => {
-  res.writeHead(200, {'Content-Type': 'text/plain'})
-  res.send('Bot is running\n')
-}).listen(process.env.PORT || 5000);
+// Heroku requires a web server, so uh, here you go
+const app = express()
 
+app.get('/', function (req, res) {
+  res.send('Bleep bloop, bot is running')
+})
+
+app.listen(3000)
+
+// genString generated the "Oh shit" string
 const genString = () => {
   let eyes = ""
   let heyches = ""
@@ -38,6 +42,7 @@ const topics = [
   'Trump',
 ]
 
+// Reputable news sources
 const users = [
   "reuters",
   "buzzfeednews",
