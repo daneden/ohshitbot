@@ -1,6 +1,16 @@
 require('dotenv').config()
 
 import Twit from 'twit-promise'
+import express from 'express'
+
+// Heroku requires a web server running, so, uh, here you go
+const app = express()
+app.set('port', (process.env.PORT | 5000))
+
+app.get('/', (req, res) => {
+  const result = 'Bot is running'
+  res.send(result)
+})
 
 const genString = () => {
   let eyes = ""
