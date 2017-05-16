@@ -32,7 +32,6 @@ const topics = [
 ]
 
 const users = [
-  "_dte",
   "nytimes",
   "qz",
   "bbcbreaking",
