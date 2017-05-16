@@ -10,7 +10,7 @@ app.get('/', function (req, res) {
   res.send('Bleep bloop, bot is running')
 })
 
-app.listen(3000)
+app.listen(process.env.PORT || 3000)
 
 // genString generated the "Oh shit" string
 const genString = () => {
