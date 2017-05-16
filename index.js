@@ -32,6 +32,8 @@ const topics = [
 ]
 
 const users = [
+  "reuters",
+  "buzzfeednews",
   "nytimes",
   "qz",
   "bbcbreaking",
