@@ -40,6 +40,10 @@ const users = [
   "washingtonpost",
   "cnn",
   "cnnbrk",
+  "latimes",
+  "foreignpolicy",
+  "theeconomist",
+  "wsj",
 ]
 
 const stream = T.stream('statuses/filter', {
