@@ -43,16 +43,22 @@ const users = [
 
 const stream = T.stream('statuses/filter', {
   track: topics,
-  follow: users,
 })
 
 stream.on('tweet', tweet => {
-  const status = `https://twitter.com/${name}/status/${tweet.id_str}`
+  const user = tweet.user.screen_name
+
+  // We only want the reputable sources to cause an OH SHIT
+  if(users.indexOf(user) === -1) return
+
+  const status = `https://twitter.com/${user}/status/${tweet.id_str}`
   const commentary = genString()
+
+  console.log(commentary, '\n', status)
 
   T.post('statuses/update', {status: [commentary, status].join('\n')})
     .then( function(result) {
-      console.log(result.data)
-      console.log(result.response.statusCode)
+      console.log(`Tweeted "${[commentary, status].join('\n')}"`)
     })
+    .catch( err => console.error(err))
 })
