@@ -16,15 +16,19 @@ app.listen(process.env.PORT || 3000)
 const genString = () => {
   let eyes = ""
   let heyches = ""
+  let effs = ""
 
   // Maximum of 15 occurances
-  let hOcc = Math.ceil(Math.random() * 15)
-  let iOcc = Math.ceil(Math.random() * 15)
+  let hOcc = Math.ceil(Math.random() * 10)
+  let iOcc = Math.ceil(Math.random() * 10)
 
   for(let i = 0; i < hOcc; i++) { heyches += "h" }
   for(let i = 0; i < iOcc; i++) { eyes += "i" }
+  if(Math.random() < 0.1) {
+    for(let i = 0; i < Math.random() * 10; i++) { effs += "f" }
+  }
 
-  let s = `O${heyches} sh${eyes}t`
+  let s = `O${heyches} ${effs}sh${eyes}t`
 
   // 20% chance of SCREAMING
   return Math.random() > .2 ? s : s.toUpperCase()
